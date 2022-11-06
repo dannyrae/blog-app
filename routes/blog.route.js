@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { createBlog, getBlog, getAllBlogs, updateBlog, deleteBlog } = require('../controllers/blog.controller')
-const { filterAndSort, filterByPublished, list, setUserFilter } = require('../middleware/filtering')
+const { filterAndSort, filterByPublished, list, setUserFilter } = require('../middlewares/filtering')
 const verifyToken = require('../middlewares/verifyToken')
 const pagination = require('../middleware/pagination')
 const isCreator = require('../middleware/isCreator')
