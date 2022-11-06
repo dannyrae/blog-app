@@ -7,8 +7,7 @@ const pagination = require('../middlewares/pagination')
 const isCreator = require('../middlewares/isCreator')
 
 router.route('/')
-    .get( getAllBlogs)
-    .get( filterAndSort, setUserFilter, pagination, blogController.getBlogs)
+    .get(filterAndSort, setUserFilter, pagination, getAllBlogs)
 
 router.post('/create', verifyToken, createBlog)
 
