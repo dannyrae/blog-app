@@ -19,7 +19,7 @@
     <a href="https://github.com/dannyrae/blog-app#readme"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://blogolicious.cyclic.app/">Demo</a>
+    <a href="https://danny-blog-app.cyclic.app/">Demo</a>
     ·
     <a href="https://github.com/dannyrae/blog-app/issues">Report Bug</a>
     ·
@@ -31,7 +31,7 @@
 
 ## Blog App
 
-&mdash; a wonderful Blogging API built as an exam project by <a href="https://www.github.com/dannyrae">dannyrae</a>, a Backend Engineering student at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa</a>.
+A Blogging API built as an exam project by <a href="https://www.github.com/dannyrae">dannyrae</a>, a Backend Engineering student at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa School of Engineering 2022/23</a>.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -100,7 +100,7 @@
 
 - [x] Come up with any algorithm for calculating the reading_time of the blog.
 
-- [] Write tests for all endpoints
+- [.] Write tests for all endpoints
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -144,8 +144,8 @@ npm run dev
 | field     | data_type     | constraints      |
 | --------- | ------------- | ---------------- |
 | username  | string        | required, unique |
-| firstName | string        | required         |
-| lastName  | string        | required         |
+| firstname | string        | required         |
+| lastname  | string        | required         |
 | email     | string        | required, unique |
 | password  | string        | required         |
 | blogs  | ref - Blog |                  |
@@ -155,10 +155,10 @@ npm run dev
 | field        | data_type  | constraints                                              |
 | ------------ | ---------- | -------------------------------------------------------- |
 | title        | string     | required, unique                                         |
-| description  | string     | required                                                 |
+| description  | string     |                                                 |
 | author       | ref - User |                                                          |
 | owner        | string     |                                                          |
-| state        | string     | required, default: 'draft', enum: ['draft', 'published'] |
+| state        | string     | default: 'draft', enum: ['draft', 'published'] |
 | read_count   | Number     | default: 0                                               |
 | reading_time | Number     |                                                          |
 | tags         | array      | optional                                                 |
@@ -273,6 +273,73 @@ npm run dev
     }
 }
 ```
+
+<p align="right"><a href="#readme-top">back to top</a></p>
+
+---
+
+### Get all published blogs
+
+- Route: /api/
+- Method: GET
+- Header
+  - Authorization: Bearer {token}
+  - None (Accessible to unauthenticated users)
+- Query params:
+
+  - page (default: 1)
+  - size (default: 20)
+
+  - Filters: Limit returned response by passing values to any of the following parameters:
+
+    - author
+    ```text
+    /api/blog?author=Author
+    ```
+    - title
+    ```text
+    /api/blog?title=Title
+    ```
+    - tags: Separate multiple values with a comma 
+    ```text
+    /api/blog?tags=sql,database
+    ```
+
+<p align="right"><a href="#readme-top">back to top</a></p>
+
+---
+
+### Get all created blogs by authenticated user
+
+- Route: /api/user/
+- Method: GET
+- Header
+  - Authorization: Bearer {token}
+- Query params:
+
+  - page (default: 1)
+  - size (default: 20)
+
+  - Filters: Limit returned response by passing values to any of the following parameters:
+
+    - state
+    ```text
+    /api/blog?state=draft
+    ```
+
+    ```text
+    /api/blog?state=published
+    ```
+
+    - title
+    ```text
+    /api/blog?title=Title
+    ```
+    - tags: Separate multiple values with a comma 
+    ```text
+    /api/blog?tags=sql,database
+    ```
+    
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
