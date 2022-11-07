@@ -9,7 +9,7 @@ const isCreator = require('../middlewares/isCreator')
 router.route('/')
     .get(getPublishedBlogs)
 
-router.get('/user', getUserBlogs)
+router.get('/user', verifyToken, getUserBlogs)
 
 router.post('/create', verifyToken, createBlog)
 
