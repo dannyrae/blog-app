@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const { createBlog, getBlog, getAllBlogs, updateBlog, deleteBlog, getPublishedBlogs, getUserBlogs } = require('../controllers/blog.controller')
+const { createBlog, getBlog, getPublishedBlogs, getUserBlogs, updateBlog, deleteBlog } = require('../controllers/blog.controller')
 const { filterAndSort, filterByPublished, list, setUserFilter } = require('../middlewares/filtering')
 const verifyToken = require('../middlewares/verifyToken')
 const pagination = require('../middlewares/pagination')
 const isCreator = require('../middlewares/isCreator')
 
 router.route('/')
-    .get(getPublishedBlogs)
+    .get(filterAndSort, pagination, getPublishedBlogs)
 
 router.get('/user', verifyToken, getUserBlogs)
 
