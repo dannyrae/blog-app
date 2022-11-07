@@ -31,31 +31,15 @@ const createBlog = async (req, res, next) => {
   }
 }
 
-const getAllBlogs = async (req, res, next) => {
+const getPublishedBlogs = async (req, res, next) => {
   try {
     const blogs = await Blog
       .find(req.findFilter)
-      .select(req.fields)
+      .where({state: "published"})
       .populate('author', { username: 1 })
       .skip(req.pagination.start)
       .limit(req.pagination.sizePerPage)
 
-    const pageInfo = req.pageInfo
-
-    return res.json({
-      status: true,
-      pageInfo,
-      data: blogs,
-    })
-  } catch (err) {
-    err.source = 'get published blogs controller'
-    next(err)
-  }
-}
-
-const getPublishedBlogs = async (req, res, next) => {
-  try {
-    const blogs = await Blog.find({state: 'published'}).sort({createdAt: 1}).skip(0).limit(20)
     const pageInfo = blogs.length
 
     res.status(200).json({
@@ -72,7 +56,12 @@ const getPublishedBlogs = async (req, res, next) => {
 
 const getUserBlogs = async (req, res, next) => {
   try {
-    const blogs = await Blog.find({state: req.query.state}).where({author: req.user}).skip(0).limit(20)
+    const blogs = await Blog
+      .find(req.findFilter)
+      .where({author: req.user})
+      .skip(req.pagination.start)
+      .limit(req.pagination.sizePerPage)
+      
     const numberOfContents = blogs.length
 
     res.status(200).json({
@@ -146,10 +135,10 @@ const deleteBlog = async (req, res, next) => {
 
 module.exports = {
   createBlog,
-  getAllBlogs,
   getBlog,
+  getPublishedBlogs,
+  getUserBlogs,
   updateBlog,
   deleteBlog,
-  getPublishedBlogs,
-  getUserBlogs
+
 }
