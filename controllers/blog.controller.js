@@ -2,25 +2,21 @@ const Blog = require('../models/blog.model')
 
 const createBlog = async (req, res, next) => {
   try {
-
-    // grab details from the request
     const { title, description, tags, body } = req.body
 
     const blog = await Blog.findOne({ title })
     if (blog) return res.status(400).json({ status: false, message: "Blog already exists!" })
-    // create blog object
+
     const newBlog = new Blog({
       title,
-      description: description || title,
+      description: description,
       tags,
       author: req.user._id,
       body,
       owner: req.user.username,
     })
-    // save to database
-    const createdBlog = await newBlog.save()
 
-    // save blog ID to user document
+    const createdBlog = await newBlog.save()
     req.user.blogs = req.user.blogs.concat(createdBlog._id)
     await req.user.save()
 
@@ -65,6 +61,23 @@ const getPublishedBlogs = async (req, res, next) => {
     res.status(200).json({
       status: true,
       pageInfo,
+      data: blogs
+    })
+    
+  } catch (err) {
+    err.source = 'get published blogs controller'
+    next(err)
+  }
+}
+
+const getUserBlogs = async (req, res, next) => {
+  try {
+    const blogs = await Blog.find({state: req.query.state}).where({author: req.user}).skip(0).limit(20)
+    const numberOfContents = blogs.length
+
+    res.status(200).json({
+      status: true,
+      numberOfContents,
       data: blogs
     })
     
@@ -137,5 +150,6 @@ module.exports = {
   getBlog,
   updateBlog,
   deleteBlog,
-  getPublishedBlogs
+  getPublishedBlogs,
+  getUserBlogs
 }
