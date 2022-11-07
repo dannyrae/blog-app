@@ -57,6 +57,23 @@ const getAllBlogs = async (req, res, next) => {
   }
 }
 
+const getPublishedBlogs = async (req, res, next) => {
+  try {
+    const blogs = await Blog.find({state: 'published'}).sort({createdAt: 1}).skip(0).limit(20)
+    const pageInfo = blogs.length
+
+    res.status(200).json({
+      status: true,
+      pageInfo,
+      data: blogs
+    })
+    
+  } catch (err) {
+    err.source = 'get published blogs controller'
+    next(err)
+  }
+}
+
 const getBlog = async (req, res, next) => {
   try {
     const { id } = req.params
@@ -119,5 +136,6 @@ module.exports = {
   getAllBlogs,
   getBlog,
   updateBlog,
-  deleteBlog
+  deleteBlog,
+  getPublishedBlogs
 }
