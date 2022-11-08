@@ -457,7 +457,7 @@ Distributed under the MIT License. See <a href="https://github.com/dannyrae/blog
 - Twitter - [@_emmanueldan](https://twitter.com/_emmanueldan)
 - email - emmanueldan0920@gmail.com
 
-Project Link: [Blog App](https://github.com/dannyrae/blog-app)
+Project Repo Link: [Blog App](https://github.com/dannyrae/blog-app)
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
