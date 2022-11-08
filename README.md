@@ -31,7 +31,7 @@
 
 ## Blog App
 
-A Blogging API built as an exam project by <a href="https://www.github.com/dannyrae">dannyrae</a>, a Backend Engineering student at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa School of Engineering 2022/23</a>.
+This an api for a Blog App built as an exam project by <a href="https://www.github.com/dannyrae">dannyrae</a>, a Backend Engineering student at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa School of Engineering 2022/23</a>.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -54,9 +54,7 @@ A Blogging API built as an exam project by <a href="https://www.github.com/danny
 
 ## Requirements
 
-<details>
-
-<summary> <strong>Requirements for the examination project</strong> </summary>
+<strong>Requirements for the examination project</strong>
 
 - [x] Users should have a first_name, last_name, email, password,
 
@@ -105,8 +103,6 @@ A Blogging API built as an exam project by <a href="https://www.github.com/danny
 <p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
-
-</details>
 
 <br>
 
