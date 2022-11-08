@@ -98,7 +98,7 @@ This an api for a Blog App built as an exam project by <a href="https://www.gith
 
 - [x] Come up with any algorithm for calculating the reading_time of the blog.
 
-- [.] Write tests for all endpoints
+- [x] Write tests for all endpoints
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -106,7 +106,7 @@ This an api for a Blog App built as an exam project by <a href="https://www.gith
 
 <br>
 
-## Development
+## Development Setup
 
 ### Prerequisites
 
@@ -132,6 +132,8 @@ npm install
 ```sh
 npm run dev
 ```
+## Base URL
+- [danny-blog-app.cyclic.app/](https://danny-blog-app.cyclic.app/)
 
 ### Models
 
@@ -164,9 +166,9 @@ npm run dev
 
 ---
 
-## Usage
+## Apis
 
-### Creating a user
+### Signup User
 
 - Route: /signup
 - Method: POST
@@ -203,7 +205,7 @@ npm run dev
 
 ---
 
-### Logging in
+### Login User
 
 - Route: /login
 - Method: POST
@@ -432,7 +434,7 @@ While building this project, I learned about:
 - Debugging
 - User Authentication
 - User Authorization
-- Mongoose Documentation
+- Mongoose populate & ref
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -471,8 +473,12 @@ This project was made possible by:
 - [Full Stack open 2022](https://fullstackopen.com/en/)
 - [Othneil Drew's README Template](https://github.com/othneildrew/Best-README-Template)
 - [Ileriayo's Markdown Badges](https://github.com/Ileriayo/markdown-badges)
+- [Daniel's pizza app Readme Template](https://github.com/daniel-alts/pizza_app/blob/main/README.md)
 
 <p align="right"><a href="#readme-top">back to top</a></p>
+
+## Contributor
+- Emmanuel Asuquo
 <!-- Markdown Links & Images -->
 
 [contributors-shield]: https://img.shields.io/github/contributors/dannyrae/blog-app.svg?style=for-the-badge
