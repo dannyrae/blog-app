@@ -13,13 +13,13 @@ app.use(express.json())
 connectDB()
 
 const apiRoutes = {
-    signup_user = "POST - danny-blog-app.cyclic.app/signup",
-    login_user = "POST - danny-blog-app.cyclic.app/login",
-    create_blog = "POST - danny-blog-app.cyclic.app/api/create",
-    update_blog = "PATCH - danny-blog-app.cyclic.app/api/:blogId",
-    delete_blog = "DELETE - danny-blog-app.cyclic.app/api/:blogId",
-    get_blog = "GET - danny-blog-app.cyclic.app/api/:blogId",
-    get_blogs = "GET - danny-blog-app.cyclic.app/api/",
+    signupUser = "POST - danny-blog-app.cyclic.app/signup",
+    loginUser = "POST - danny-blog-app.cyclic.app/login",
+    createBlog = "POST - danny-blog-app.cyclic.app/api/create",
+    updateBlog = "PATCH - danny-blog-app.cyclic.app/api/:blogId",
+    deleteBlog = "DELETE - danny-blog-app.cyclic.app/api/:blogId",
+    getBlog = "GET - danny-blog-app.cyclic.app/api/:blogId",
+    getBlogs = "GET - danny-blog-app.cyclic.app/api/",
 }
 
 // middlewares
