@@ -30,7 +30,7 @@ app.use('/api', blogRoute)
 app.get('/', (req, res) => {
     res.json({
         status: true,
-        message: "Welcome to my Blog Api :)", apiRoutes
+        message: "Welcome to my Blog Api :)"
     })
 })
 
