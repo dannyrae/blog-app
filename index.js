@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
     get_blog : "GET - danny-blog-app.cyclic.app/api/:blogId",
     get_blogs : "GET - danny-blog-app.cyclic.app/api/",
 }
-    res.json({
+    res.status(200).json({
         status: true,
         message: "Welcome to my Blog Api :)", apiRoutes
     })
