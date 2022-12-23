@@ -23,8 +23,8 @@ app.use('/api', blogRoute)
 
 app.get('/', (req, res) => {
     const apiRoutes = {
-    signup_user : "POST - danny-blog-app.cyclic.app/signup",
-    login_user : "POST - danny-blog-app.cyclic.app/login",
+    signup : "POST - danny-blog-app.cyclic.app/signup",
+    login : "POST - danny-blog-app.cyclic.app/login",
     create_blog : "POST - danny-blog-app.cyclic.app/api/create",
     update_blog : "PATCH - danny-blog-app.cyclic.app/api/:blogId",
     delete_blog : "DELETE - danny-blog-app.cyclic.app/api/:blogId",
