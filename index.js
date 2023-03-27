@@ -1,5 +1,4 @@
 const express = require('express')
-// const mongoose = require('mongoose')
 const {connectDB} = require('./config/db.config')
 const userRoute = require('./routes/user.route')
 const blogRoute = require('./routes/blog.route')
