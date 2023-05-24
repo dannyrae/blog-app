@@ -125,8 +125,6 @@ git clone https://github.com/dannyrae/blog-app.git
 npm install
 ```
 
-#### Update .env with [example.env](https://github.com/dannyrae/blog-app/blob/main/example.env)
-
 #### Run a development server
 
 ```sh
